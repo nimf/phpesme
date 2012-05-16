@@ -3,6 +3,12 @@
 
 phpESME is a php-based External Short Messaging Entity. Which allows you to connect to SMSC to send/receive messages and build services on top of that.
 
+## Features:
+
+* Receiving SMSes (multipart also, unicode as well)
+* Sending SMSes (multipart also, unicode as well)
+* Handling delivery reports for sent SMSes (if requested)
+
 ## How to run it?
 
 1. Install MySQL
