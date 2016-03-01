@@ -464,6 +464,7 @@ class NIMF_esme {
         $this->sock->disconnect();
         return false;
       }
+      $this->sqn++;
       $res = $this->parse_pdu_header(substr($pdu,0,16));
       $pdubody = substr($pdu,16);
       if ($res['stat'] !== 0) {
@@ -504,7 +505,7 @@ class NIMF_esme {
       $txtlen = strlen($text);
     }
     
-    $sqn = ++$this->sqn;
+    $sqn = ++$this->sqn; // sqn used here as an identifier for all parts
     $prts = ceil($txtlen/$parlen);
     for($i=0;$i<$prts;$i++) {
       $udh = pack("cccccc", 5, 0, 3, $sqn, $prts, ($i+1));
